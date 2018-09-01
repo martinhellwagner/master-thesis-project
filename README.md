@@ -6,7 +6,7 @@ Any design activity starts from sketching. In the visual domain, sketches effect
 
 ## How to get stared
 
-Before being able to run the program, the source files (located in the *Files* directory) have to be obtained by writing a request to *martin.hellwagner@gmail.com*.
+Before being able to run the program, the source files (normally located in the *Files* directory) have to be obtained by writing a request to martin.hellwagner@gmail.com.
 
 1. Open `main.m` in [MATLAB](https://www.mathworks.com/products/matlab.html).
 2. Execute `main.m` in the correct folder (see below).
