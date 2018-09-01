@@ -1,0 +1,103 @@
+DOCUMENTATION OF SEGMENT EXTRACTION FROM THE SkAT-VG_KTH DATABASE
+
+=======================================
+LIST OF FILES:
+
+myoelastic-0 (= no myoelastics)
+myoelastic-1 (= myoelastics, with certain exlcusions)
+
+phonation-0 (= no vocal fold phonation)
+phonation-1 (= vocal fold phonation, with certain exclusions)
+
+turbulent-0 (= no turbulent)
+turbulent-1 (= turbulent)
+
+
+Also included are the "source" files for the files above. 
+
+LMann-Nas-TMann-LarSup_all.txt - A list of segments from the combination values of the annotation tiers LipManner, Nasality, TongueManner and LarSupra.
+LarVF-Nas-LMann-TMann_all.txt -  A list of segments from the combination values of the annotation tiers LarVocFold, Nasality, LipManner and TongueManner
+
+
+=======================================
+FILE STRUCTURE
+
+The fields are tab separated.
+
+The first field gives the combined annotation value for the tier combination. There are four values separated by a space, e.g.:
+- L-open oral turbulent LS#  (combines the LipManner, Nasality, TongueManner and LarSupra values into one)
+- voiced nasal L-open occlusion  (combines the LarVocFold, Nasality, LipManner and TongueManner values into one)
+
+The second field gives the duration of the segment; the third and fourth fields give the begin- and endtimes of the segment; the fourth gives the path to the ELAN file.
+
+
+=======================================
+SOME FURTHER EXPLANATIONS
+
+==============
+MYOELASTIC
+
+For the lists myoelastic-0 and myoelastic-1 four annotation tiers were combined: LipManner, Nasality, TongueManner and LarSupra. 
+
+The myoelastic-0 list are cases in which a sound is produced and the sound is not a myoelastic sound. Thus voiceless occlusives are excluded from myoelastic-0 (no sound) as well as all myoelastics. Note that voiced occlusives are included in myoelastic-0, but these had to be extracted using another tier combination, i.e. LarVocFold, Nasality, LipManner and TongueManner, and they are therefore appended at the end of the myoelastic-0 list.
+
+The myoelastic-1 list is extracted using the following values:
+- myoelastic_lax (from LipManner)
+- velic_myoelastic (from Nasality)
+- myoelastic (from TongueManner)
+- aryepiglottal (from LarSupra)
+- ventricular (from LarSupra)
+
+There are three more myoelastic values that have NOT been included in this myoelastic-1 list:
+- myoelastic_tense (from LipManner)
+- unspecified_labial_vibration (from LipManner)
+- unspecified_dorsal_vibration (from TongueManner)
+
+The myoelastic_tense value describes a fast, bilabial vibration (very much like embouchure), which is probably not a good fit in the otherwise slowly vibrating myoelastic category. 
+
+The unspecified vibration values are cases which do not fit neatly in the myoelastic category and whose articulatory mechanisms are unclear at the moment.
+
+
+==============
+
+PHONATION (i.e. VOCAL FOLD VIBRATION)
+
+For the lists phonation-0 and phonation-1 four annotation tiers were combined: LarVocFold, Nasality, LipManner and TongueManner. 
+
+The phonation-0 list are cases which a sound is produced but there is no vocal fold vibration. Thus voiceless occlusives are excluded from phonation-0 (no sound) as well as all segments with any manner of vocal fold vibration.
+
+The phonation-1 list is extracted using the follwoing values from the LarVocFold tier:
+- voiced (which in turn collapses the original values modal and pressed)
+- falsetto
+- breathy
+
+There are two more LarVocFold tier values that have NOT been in the phonation-1 list:
+- creaky
+- unspecified_vf_vibration
+
+The creaky value describes creaky voice, which is not a good fit in the vocal fold phonation category in terms of frequency of vibration (it has more in common with the slower myoelastics in that respect).
+
+The unspecified_vf_vibration describes "abnormal" phonation, which I suspect usually describes a phonation with a missing fundamental (e.g. at the onset of voicing).
+
+
+==============
+
+TURBULENT
+
+To create the lists turbulent-0 and turbulent-1 four annotation tiers were combined: LarVocFold, Nasality, LipManner and TongueManner,
+
+The turbulent-0 list are cases in which a sound is produced but the sound is not turbulent. Thus voiceless occlusives are excluded from turbulent-0 (no sound) as well as all segments with a turbulent annotation in the LipManner or TongueManner tiers. Also excluded segments with abducted vocal folds in which both LipManner and TongueManner tiers have an open value (i.e. glottal friction as in h-like sounds).
+
+The turbulent-1 list uses the following values to capture turbulence involvning lips and tongue:
+- L-turbulent (from the LipManner tier; this value in turn collapses the values
+               turbulent_spread, turbulent_rounded and turbulent_labiodental)
+- turbulent (from the TongueManner tier)
+
+To capture glottal friction (h-like sounds), a combination of values from different tiers was used:
+- abducted (LarVocFold tier)   + L-open (LipManner tier)   + open (TongueManner tier)
+
+Note that the L-open value collapses the LipManner values open_rounded, open_half_rounded, open_neutral, open_spread and L-transition.
+
+
+==============
+
